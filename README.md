@@ -49,17 +49,16 @@ This project automates the process with a simple, secure system that ensures:
 ---
 
 ## **Project Structure**
+```text
 voting_system/
-│
-├── app.py # Login page (main entry)
-│
+├── app.py            # Login page (main entry)
 ├── pages/
-│ ├── vote.py # Student voting page
-│ ├── admin.py # Admin dashboard
-│ ├── results.py # Live results page
-│
+│   ├── vote.py       # Student voting page
+│   ├── admin.py      # Admin dashboard
+│   └── results.py    # Live results page
 ├── setup_database.py # Creates tables & inserts sample data
-└── voting.db # SQLite database
+└── voting.db         # SQLite database
+```
 
 ## How to Run Locally
 
