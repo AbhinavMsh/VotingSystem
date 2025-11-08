@@ -1,4 +1,5 @@
 import sqlite3
+import random
 
 # connect or create the database
 conn = sqlite3.connect("voting.db")
@@ -30,7 +31,7 @@ students = [
     [24150033, "Anushka", "1234"],
     [24150034, "Lavkush", "1234"],
     [24150035, "Kshitij", "1234"],
-    [24150036, "Atharv SS", "1234"],
+    [24150036, "Atharv S", "1234"],
     [24150038, "Aksh", "1234"],
     [24150039, "Arnav", "1234"],
     [24150040, "Shreya S", "1234"],
@@ -47,7 +48,7 @@ students = [
     [24150096, "Santhu", "1234"],
     [24150097, "Atharva K", "1234"],
     [24150098, "Siddesh", "1234"],
-    [24150099, "Atharva S", "1234"],
+    [24150099, "Atharva B", "1234"],
     [24150100, "Prajwal", "1234"],
     [24150101, "Harsh", "1234"],
     [24150102, "Shreya C", "1234"],
@@ -70,9 +71,18 @@ students = [
     [24150148, "Aditya P", "1234"]
 ]
 
+# pick 5 distinct students as candidates
+
+candidates = [[24150006, 'Soumya',0], [24150143, 'Prasanna',0], [24150011, 'Ayush P',0], [24150119, 'Allen',0], [24150148, 'Patole',0]]
 
 
 c.executemany("INSERT OR IGNORE INTO voters (id, username, password) VALUES (?, ?, ?)", students)
+# remove all rows from candidates table before inserting new ones
+c.execute("DELETE FROM candidates")
+c.executemany("INSERT OR IGNORE INTO candidates (id, name, votes) VALUES (?, ?, ?)", candidates)
+
+
+
 
 conn.commit()
 conn.close()
