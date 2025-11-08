@@ -6,17 +6,17 @@ def get_db_connection():
     conn = sqlite3.connect('voting.db')
     conn.row_factory = sqlite3.Row
     return conn
-
+# not logged in warning 
 st.title("Admin Panel")
 if "username" not in st.session_state:
     st.warning("Please log in first.")
     st.stop()
-
+# not admin warning 
 role = st.session_state.get("role")
 if role != "Admin":
     st.warning("Not an Admin!")
     st.stop()
-
+# options
 choice = st.radio("Settings",["Add Voter", "Remove Voter", 
                      "Add Candidate", "Remove Candidate"], horizontal=True)
 
